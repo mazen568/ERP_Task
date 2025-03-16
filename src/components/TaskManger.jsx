@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
-import { Link } from "react-router";
-
 const TaskManager = ({ setCompletedTasks }) => {
 
 
@@ -135,7 +133,6 @@ const TaskManager = ({ setCompletedTasks }) => {
                                 <div className="button-group">
                                     <button className="edit-btn" onClick={() => handleEditTask(task)}>Edit</button>
                                     <button className="delete-btn" onClick={() => handleDeleteTask(task.id)}>Delete</button>
-                                    <button className="link" ><Link className="link" to={`/about/${task.id}`}>Details</Link></button>
                                     <input
                                         type="checkbox"
                                         checked={task.completed || false}

@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import TaskManager from './components/TaskManger';
 import RootLayout from './components/RootLayout';
 import CompletedTasks from './components/CompletedTask';
-import About from './components/About';
 import { useState } from 'react';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
     children:[
       {path:"/" , element:<TaskManager setCompletedTasks={setCompletedTasks} />},
       {path:"/completed-tasks" , element:<CompletedTasks completedTasks={completedTasks}/>},
-      {path:"/about/:id" ,element:<About/>}
     ]
    }
   ])
@@ -35,4 +33,3 @@ function App() {
 }
 
 export default App
-

@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
-const TaskManager = ({ setCompletedTasks }) => {
+import { useOutletContext } from "react-router-dom";
+
+const TaskManager = () => {
+
+
+    const { setCompletedTasks } = useOutletContext(); // ✅ Get state from RootLayout
+
 
 
     const [tasks, setTasks] = useState([]);

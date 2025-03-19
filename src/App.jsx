@@ -1,35 +1,24 @@
-import './App.css'
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import TaskManager from './components/TaskManger';
-import RootLayout from './components/RootLayout';
-import CompletedTasks from './components/CompletedTask';
-import { useState } from 'react';
+import "./App.css";
+import { RouterProvider, createHashRouter } from "react-router-dom";
+import TaskManager from "./components/TaskManger";
+import RootLayout from "./components/RootLayout";
+import CompletedTasks from "./components/CompletedTask";
+import NotFound from "./components/NotFound";
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <TaskManager /> }, 
+      { path: "completed-tasks", element: <CompletedTasks /> },
+      { path: "*", element: <NotFound /> }, 
+    ],
+  },
+]);
 
 function App() {
-
-  const [completedTasks,setCompletedTasks]=useState([]);
-
-
-
-
-  const router =createBrowserRouter([
-   {
-    path:"/" ,
-    element:<RootLayout/>,
-    children:[
-      {path:"/" , element:<TaskManager setCompletedTasks={setCompletedTasks} />},
-      {path:"/completed-tasks" , element:<CompletedTasks completedTasks={completedTasks}/>},
-    ]
-   }
-  ])
- 
-
-  return (
-    <>
-     <RouterProvider router={router}/>
-    </>
-  );
-
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

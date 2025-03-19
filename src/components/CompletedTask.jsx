@@ -1,4 +1,7 @@
-const CompletedTasks=({completedTasks})=>{
+import { useOutletContext } from "react-router-dom";
+
+const CompletedTasks=()=>{
+    const { completedTasks } = useOutletContext(); // ✅ Get state from RootLayout
     
     return (
         <>

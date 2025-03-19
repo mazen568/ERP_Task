@@ -1,14 +1,16 @@
 import { Outlet } from "react-router";
 import NavBar from "./NavBar";
+import { useState } from "react";
 
-const RootLayout = ({ allTasks, updateAllTasks, isLoading, error }) => {
-    console.log(allTasks);
+const RootLayout = ( ) => {
+    const [completedTasks, setCompletedTasks] = useState([]);
+
     
     return (
         <>
             <NavBar />
-            <Outlet context={{ allTasks, updateAllTasks, isLoading, error }} />
-        </>
+            <Outlet context={{ completedTasks, setCompletedTasks }} />
+            </>
     );
 };
 
